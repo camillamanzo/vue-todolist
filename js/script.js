@@ -11,14 +11,27 @@ let app = new Vue(
         el: "#app",
         data: {
             arr: ["Do a one hour workout.", "Have lunch with Jonas.", "Finish reading the book.", "Go buy fruit.", "Call mom.", "Buy Filo's birthday present.", ],
-            arrIndex: 0,
+            newElement: "",
+            overline: false,
         },
 
         methods: {
-            overlineText: function(element){
-                console.log("button clicked");
+            // Function that deletes the element clicked.
+            deleteText: function(element){
                 this.arr.splice(element, 1);
+            },
 
+            // Function that adds the written element to the list.
+            addElement: function(event){
+                if(this.newElement.trim(" ").length > 0){
+                   this.arr.push(this.newElement.trim(" "));
+                   this.newElement = "" 
+                }
+            },
+
+            overlineText: function(){
+                this.overline = true;
+                console.log(this.overline);
             }
         }
     });

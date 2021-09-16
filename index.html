@@ -19,11 +19,15 @@
     </header>
     <main>
         <div id="app">
-
+            <div>
+                <input class="m-3" type="text" placeholder="Insert a new element in the list" v-model="newElement" @keyup.enter="addElement">
+                <button class="px-3" @click="addElement">Insert</button>
+            </div>
+            
             <ul>
                 <li class="m-1" v-for="(element, index) in arr">
-                    <p class="d-inline">{{ element }}  </p>
-                    <i class="fas fa-check" @click="overlineText"></i>
+                    <p @click="overlineText" :class="{'text-danger':overline}" class="d-inline">{{ element }}  </p>
+                    <i class="fas fa-check" @click="deleteText"></i>
                 </li>
             </ul>
 
