@@ -29,6 +29,7 @@ let app = new Vue(
                 }
             },
 
+            // Function that changes the color of the array elements when one is clicked.
             overlineText: function(){
                 this.overline = true;
                 console.log(this.overline);
